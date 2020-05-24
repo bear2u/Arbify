@@ -6,9 +6,7 @@
       * @var \Illuminate\Support\Collection $messageValues
       */
     $label = $message->name . '.' . $language->code . (!is_null($form) ? '.' . $form ?? '' : '');
-    $value = $messageValues
-        ->where('language_id', $language->id)
-        ->where('message_id', $message->id)
+    $value = $values
         ->where('form', $form)
         ->first();
     $value = $value ? $value->value : null;

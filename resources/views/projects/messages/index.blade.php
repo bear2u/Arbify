@@ -54,6 +54,9 @@
                 </thead>
                 <tbody>
                     @forelse($project->messages as $message)
+                        @php
+                            $values = $messageValues->where('message_id', $message->id);
+                        @endphp
                         <tr>
                             <th scope="row" class="font-weight-normal">
                                 <div class="d-flex flex-wrap align-items-baseline justify-content-between">
@@ -90,6 +93,7 @@
                                     @include('projects.messages.message-inputs', [
                                         'language' => $language,
                                         'message' => $message,
+                                        'values' => $values->where('language_id', $language->id)
                                     ])
                                 </td>
                             @endforeach
