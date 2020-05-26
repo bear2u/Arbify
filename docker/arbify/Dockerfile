@@ -35,8 +35,10 @@ RUN version=$(php -r "echo PHP_MAJOR_VERSION.PHP_MINOR_VERSION;") \
     && printf "extension=blackfire.so\nblackfire.agent_socket=tcp://blackfire:8707\n" > /usr/local/etc/php/conf.d/blackfire.ini \
     && rm -rf /tmp/blackfire /tmp/blackfire-probe.tar.gz
 
+# RUN npm config set unsafe-perm true
+
 WORKDIR /var/www
-RUN mkdir /var/www/node_modules
+
 
 USER $user
 
