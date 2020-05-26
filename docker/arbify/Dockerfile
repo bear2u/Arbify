@@ -36,6 +36,7 @@ RUN version=$(php -r "echo PHP_MAJOR_VERSION.PHP_MINOR_VERSION;") \
     && rm -rf /tmp/blackfire /tmp/blackfire-probe.tar.gz
 
 WORKDIR /var/www
+RUN mkdir /var/www/node_modules
 
 USER $user
 
